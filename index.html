@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luis Tech - Consultoría y Transformación Digital</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandHeader: '#00308F', // Azul premium para el header / botones destacados
+                        brandBg: '#BCD4E6',     // Fondo suave azul pastel solicitado
+                        brandDark: '#0A2540',   // Gris oscuro azulado para textos
+                        brandAccent: '#0047AB'  // Azul cobalto para efectos interactivos
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Animaciones personalizadas */
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Estilos personalizados para inputs */
+        .form-input:focus {
+            border-color: #00308F;
+            box-shadow: 0 0 0 3px rgba(0, 48, 143, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-brandBg text-brandDark font-sans flex flex-col min-h-screen">
+
+    <!-- Header / Navegación Principal -->
+    <header class="bg-brandHeader text-white sticky top-0 z-50 shadow-md transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logotipo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#inicio" class="flex items-center space-x-2 text-xl font-bold tracking-wider hover:opacity-90 transition">
+                        <!-- Logo desde Google Drive integrado directamente -->
+                        <img src="https://lh3.googleusercontent.com/d/1uw831d87j_ABZUZoaBwUz78iBREy3GWT" alt="Logo Luis Tech" class="h-10 w-auto object-contain rounded" onerror="this.onerror=null; this.src='https://placehold.co/150x50/00308F/FFFFFF?text=LUIS+TECH';">
+                        <span>LUIS <span class="text-sky-300">TECH</span></span>
+                    </a>
+                </div>
+                
+                <!-- Menú Desktop -->
+                <nav class="hidden md:flex space-x-1">
+                    <a href="#inicio" class="px-3 py-2 rounded-md text-sm font-semibold transition hover:bg-white hover:text-brandHeader">Inicio</a>
+                    <a href="#servicios" class="px-3 py-2 rounded-md text-sm font-semibold transition hover:bg-white hover:text-brandHeader">Servicios</a>
+                    <a href="#mision-vision" class="px-3 py-2 rounded-md text-sm font-semibold transition hover:bg-white hover:text-brandHeader">Misión y Visión</a>
+                    <a href="#multimedia" class="px-3 py-2 rounded-md text-sm font-semibold transition hover:bg-white hover:text-brandHeader">Casos de Éxito</a>
+                    <a href="#contacto" class="px-3 py-2 rounded-md text-sm font-semibold transition hover:bg-white hover:text-brandHeader">Contacto</a>
+                </nav>
+
+                <!-- Botón de Menú Móvil -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-white hover:text-brandHeader focus:outline-none transition" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Abrir menú principal</span>
+                        <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Móvil Desplegable -->
+        <div class="hidden md:hidden bg-brandHeader border-t border-blue-900" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#inicio" class="block px-3 py-2 rounded-md text-base font-semibold hover:bg-white hover:text-brandHeader transition">Inicio</a>
+                <a href="#servicios" class="block px-3 py-2 rounded-md text-base font-semibold hover:bg-white hover:text-brandHeader transition">Servicios</a>
+                <a href="#mision-vision" class="block px-3 py-2 rounded-md text-base font-semibold hover:bg-white hover:text-brandHeader transition">Misión y Visión</a>
+                <a href="#multimedia" class="block px-3 py-2 rounded-md text-base font-semibold hover:bg-white hover:text-brandHeader transition">Casos de Éxito</a>
+                <a href="#contacto" class="block px-3 py-2 rounded-md text-base font-semibold hover:bg-white hover:text-brandHeader transition">Contacto</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección Inicio (Hero Section) -->
+    <section id="inicio" class="relative py-20 lg:py-32 flex items-center overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
+                <!-- Texto Principal -->
+                <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left fade-in">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-brandHeader mb-4">
+                        <i class="fa-solid fa-rocket mr-1"></i> Soluciones Cloud 2026
+                    </span>
+                    <h1 class="text-4xl tracking-tight font-extrabold text-brandDark sm:text-5xl md:text-6xl">
+                        <span class="block">Impulsa tu PYME</span>
+                        <span class="block text-brandHeader">con tecnología inteligente</span>
+                    </h1>
+                    <p class="mt-3 text-base text-gray-700 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl leading-relaxed">
+                        Con más de 20 años de experiencia, lideramos la transformación digital de pequeñas y medianas empresas. Implementamos arquitecturas robustas en la nube, optimizamos tus procesos de negocio y garantizamos la seguridad de tu información.
+                    </p>
+                    <div class="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                            <a href="#servicios" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-brandHeader hover:bg-brandAccent shadow transition duration-300">
+                                Explorar Servicios
+                            </a>
+                            <a href="#contacto" class="inline-flex items-center justify-center px-6 py-3 border border-brandHeader text-base font-medium rounded-md text-brandHeader bg-transparent hover:bg-white/40 transition duration-300">
+                                Contactar un Experto
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Ilustración Decorativa con Mockup de Plataformas -->
+                <div class="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 flex justify-center items-center">
+                    <div class="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md overflow-hidden bg-brandHeader p-4">
+                        <div class="flex items-center space-x-2 pb-3 border-b border-blue-800 text-white/50 text-xs">
+                            <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                            <span class="ml-4 font-mono">luistech.cloud-dashboard.sh</span>
+                        </div>
+                        <div class="mt-4 text-white font-mono text-xs space-y-2 select-none">
+                            <p class="text-green-400">$ npm run deploy --prod</p>
+                            <p class="text-gray-400">> Optimizing assets and bundle size...</p>
+                            <p class="text-gray-400">> Connecting with cloud-datacenter via SSL/TLS...</p>
+                            <p class="text-sky-300">> Success! Deployed in 0.42 seconds to AWS/Google Cloud</p>
+                            <div class="mt-4 p-3 bg-slate-900 rounded border border-slate-800">
+                                <p class="text-yellow-400">// Estado de Infraestructura de PYME</p>
+                                <p class="text-pink-400">const<span class="text-white"> pymeInfo = {</span></p>
+                                <p class="pl-4">cloudSaaS: <span class="text-emerald-400">"Microsoft 365 & Google Cloud"</span>,</p>
+                                <p class="pl-4">ciberseguridad: <span class="text-emerald-400">"PQC Criptografía Activa"</span>,</p>
+                                <p class="pl-4">automatizacion: <span class="text-emerald-400">"Make & AI Agents Enabled"</span></p>
+                                <p class="text-white">};</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Servicios -->
+    <section id="servicios" class="py-20 bg-white/70 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brandDark">
+                    Servicios de Transformación Digital
+                </h2>
+                <p class="mt-4 text-lg text-gray-600 leading-relaxed">
+                    Diseñamos un portafolio de soluciones modulares impulsadas por IA y tecnologías cloud de vanguardia para asegurar el crecimiento sostenible de tu negocio.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tarjeta 1: Soluciones Cloud -->
+                <div class="bg-white rounded-xl shadow-lg p-8 border-t-4 border-brandHeader hover:translate-y-[-5px] transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-lg bg-blue-100 text-brandHeader flex items-center justify-center text-xl mb-6">
+                            <i class="fa-solid fa-cloud"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brandDark mb-3">Enterprise AI & Cloud</h3>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            Migración, modernización de aplicaciones y despliegue de soluciones escalables en Google Cloud y AWS. Integración de agentes inteligentes y copilotos corporativos.
+                        </p>
+                    </div>
+                    <a href="#contacto" class="text-brandHeader font-semibold inline-flex items-center hover:text-brandAccent">
+                        Saber más <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Tarjeta 2: Ciberseguridad -->
+                <div class="bg-white rounded-xl shadow-lg p-8 border-t-4 border-brandHeader hover:translate-y-[-5px] transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-lg bg-blue-100 text-brandHeader flex items-center justify-center text-xl mb-6">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brandDark mb-3">Estrategia de Ciberseguridad</h3>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            Evaluación proactiva de riesgos, auditorías DevSecOps, pruebas de penetración y preparación de activos activos criptográficos resistentes a la computación cuántica (PQC).
+                        </p>
+                    </div>
+                    <a href="#contacto" class="text-brandHeader font-semibold inline-flex items-center hover:text-brandAccent">
+                        Saber más <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Tarjeta 3: Automatización de Procesos -->
+                <div class="bg-white rounded-xl shadow-lg p-8 border-t-4 border-brandHeader hover:translate-y-[-5px] transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-lg bg-blue-100 text-brandHeader flex items-center justify-center text-xl mb-6">
+                            <i class="fa-solid fa-gears"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brandDark mb-3">Automatización Inteligente</h3>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            Conexión ágil de sistemas mediante webhooks y automatizaciones con herramientas modernas como Make e integraciones en tiempo real con Google Sheets, CRM y ERP.
+                        </p>
+                    </div>
+                    <a href="#contacto" class="text-brandHeader font-semibold inline-flex items-center hover:text-brandAccent">
+                        Saber más <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Misión y Visión -->
+    <section id="mision-vision" class="py-20 bg-gradient-to-br from-brandBg to-blue-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
+                <!-- Tarjeta de Misión -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 lg:p-12 border border-blue-100 flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute -right-8 -top-8 w-24 h-24 bg-blue-50 rounded-full flex items-center justify-center text-brandHeader opacity-20">
+                        <i class="fa-solid fa-compass text-6xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold tracking-widest text-brandHeader uppercase">Nuestra Razón de Ser</span>
+                        <h2 class="text-3xl font-extrabold text-brandDark mt-2 mb-6">Misión</h2>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                            Liderar la transformación tecnológica de las pymes colombianas y de América Latina mediante la provisión e integración de soluciones en la nube, automatizaciones de procesos seguras y estrategias de inteligencia artificial aplicadas. Buscamos democratizar el acceso a arquitecturas robustas y eficientes para optimizar la productividad empresarial sin requerir complejidad técnica.
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-3 text-brandHeader font-semibold">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Excelencia, innovación y transparencia.</span>
+                    </div>
+                </div>
+
+                <!-- Tarjeta de Visión -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 lg:p-12 border border-blue-100 flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute -right-8 -top-8 w-24 h-24 bg-blue-50 rounded-full flex items-center justify-center text-brandHeader opacity-20">
+                        <i class="fa-solid fa-eye text-6xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold tracking-widest text-brandHeader uppercase">Mirando al Futuro</span>
+                        <h2 class="text-3xl font-extrabold text-brandDark mt-2 mb-6">Visión</h2>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                            Para el año 2030, ser el socio consultor e integrador tecnológico líder en el sector empresarial, distinguiéndonos por diseñar e implementar arquitecturas resilientes con enfoque en computación cuántica segura, automatización inteligente avanzada y optimización continua de sistemas de información alineados con los estándares de Gobierno Digital.
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-3 text-brandHeader font-semibold">
+                        <i class="fa-solid fa-circle-notch fa-spin"></i>
+                        <span>Crecimiento sostenido y escalable.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Cuadrícula Multimedia (Casos de Éxito) -->
+    <section id="multimedia" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brandDark">
+                    Casos de Éxito e Innovación
+                </h2>
+                <p class="mt-4 text-lg text-gray-600 leading-relaxed">
+                    Nuestras integraciones tecnológicas en la práctica. Conoce cómo transformamos el manejo de datos, la nube y los flujos comerciales para nuestros socios de negocio.
+                </p>
+            </div>
+
+            <!-- Grid: 2 imágenes y 1 video incrustado -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                <!-- Imagen 1: Optimización de Servidores y Cloud -->
+                <div class="bg-brandBg/30 rounded-xl overflow-hidden shadow-md flex flex-col justify-between border border-blue-100">
+                    <div class="relative h-64 overflow-hidden group">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800" 
+                             alt="Optimización de Servidores y Nube para Pymes" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                             onerror="this.src='https://placehold.co/800x600/00308F/FFFFFF?text=Infraestructura+Cloud+PYME'">
+                        <div class="absolute inset-0 bg-brandHeader/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-brandHeader tracking-wider uppercase">Caso 1: Cloud Datacenter</span>
+                        <h3 class="text-lg font-bold text-brandDark mt-1 mb-2">Modernización de Servidores</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            Migración del core operativo y de los módulos contables de una PYME en Bogotá hacia un esquema híbrido hiperconvergente en servidores cloud, reduciendo costos operativos en hardware de mantenimiento local en un 45%.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Imagen 2: Ciberseguridad (Modificada con tu nueva imagen de Google Drive) -->
+                <div class="bg-brandBg/30 rounded-xl overflow-hidden shadow-md flex flex-col justify-between border border-blue-100">
+                    <div class="relative h-64 overflow-hidden group">
+                        <img src="https://lh3.googleusercontent.com/d/1jOWf8B1lzabr1Th7-mEw2_7hcLNLc8l4" 
+                             alt="Estrategia de Ciberseguridad y PQC" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                             onerror="this.src='https://placehold.co/800x600/00308F/FFFFFF?text=Seguridad+y+Criptografia'">
+                        <div class="absolute inset-0 bg-brandHeader/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-brandHeader tracking-wider uppercase">Caso 2: Ciberseguridad</span>
+                        <h3 class="text-lg font-bold text-brandDark mt-1 mb-2">Resiliencia y Protección</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            Implementación de políticas estrictas de cifrado extremo a extremo, control de accesos multifactor e integración con directorios activos seguros para asegurar la confidencialidad de datos corporativos de más de 300 colaboradores remotos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Video incrustado sobre ITIL y automatizaciones con IA -->
+                <div class="bg-brandBg/30 rounded-xl overflow-hidden shadow-md flex flex-col justify-between border border-blue-100 lg:col-span-1">
+                    <div class="relative h-64 w-full bg-black">
+                        <!-- Video embebido responsivo -->
+                        <iframe class="w-full h-full" 
+                                src="https://www.youtube.com/embed/P_P_KBe8-Q4" 
+                                title="¿Qué es ITIL y transformación digital?" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-brandHeader tracking-wider uppercase">Educación Tecnológica</span>
+                        <h3 class="text-lg font-bold text-brandDark mt-1 mb-2">Fundamentos de Gestión de TI</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            ¿Por qué es indispensable contar con marcos de trabajo de TI? Te compartimos esta excelente explicación sobre el ciclo de vida de los servicios y por qué organizar tu infraestructura tecnológica bajo estándares te garantiza escalabilidad sostenida.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Formulario de Contacto Automatizado -->
+    <section id="contacto" class="py-20 bg-gradient-to-br from-blue-50 to-brandBg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Columna de Texto Informativo -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs font-bold tracking-widest text-brandHeader uppercase">Trabajemos Juntos</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-brandDark">
+                        Inicia tu camino de crecimiento tecnológico hoy
+                    </h2>
+                    <p class="text-gray-700 leading-relaxed text-lg">
+                        Completa el formulario para agendar una consultoría de diagnóstico sin costo. Al enviar tus datos, nuestro sistema integrado con <strong class="text-brandHeader">Make (Integromat)</strong> registrará tu solicitud de inmediato en nuestra hoja de control y te enviará un correo automático con la confirmación de la cita.
+                    </p>
+                    
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-center space-x-3 text-gray-700">
+                            <i class="fa-solid fa-envelope text-brandHeader text-xl w-8"></i>
+                            <span>contacto@luistech.cloud</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-gray-700">
+                            <i class="fa-solid fa-phone text-brandHeader text-xl w-8"></i>
+                            <span>(+57) 300 123 4567</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-gray-700">
+                            <i class="fa-solid fa-location-dot text-brandHeader text-xl w-8"></i>
+                            <span>Bogotá, D.C., Colombia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna del Formulario de Contacto -->
+                <div class="lg:col-span-7 bg-white rounded-2xl shadow-xl p-8 border border-blue-50">
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <!-- Nombre -->
+                            <div>
+                                <label for="name" class="block text-sm font-semibold text-brandDark mb-1">Nombre Completo *</label>
+                                <div class="relative">
+                                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                                        <i class="fa-regular fa-user"></i>
+                                    </span>
+                                    <input type="text" id="name" name="name" required
+                                           class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 text-brandDark focus:outline-none focus:border-brandHeader focus:ring-2 focus:ring-blue-100 transition duration-300"
+                                           placeholder="Ej. Carlos Mendoza">
+                                </div>
+                            </div>
+                            
+                            <!-- Email -->
+                            <div>
+                                <label for="email" class="block text-sm font-semibold text-brandDark mb-1">Correo Electrónico *</label>
+                                <div class="relative">
+                                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                                        <i class="fa-regular fa-envelope"></i>
+                                    </span>
+                                    <input type="email" id="email" name="email" required
+                                           class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 text-brandDark focus:outline-none focus:border-brandHeader focus:ring-2 focus:ring-blue-100 transition duration-300"
+                                           placeholder="Ej. carlos@pyme.com">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <!-- Teléfono -->
+                            <div>
+                                <label for="phone" class="block text-sm font-semibold text-brandDark mb-1">Teléfono móvil *</label>
+                                <div class="relative">
+                                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                                        <i class="fa-solid fa-phone text-gray-400"></i>
+                                    </span>
+                                    <input type="tel" id="phone" name="phone" required
+                                           class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 text-brandDark focus:outline-none focus:border-brandHeader focus:ring-2 focus:ring-blue-100 transition duration-300"
+                                           placeholder="Ej. 3001234567">
+                                </div>
+                            </div>
+
+                            <!-- Servicio de interés -->
+                            <div>
+                                <label for="service_interest" class="block text-sm font-semibold text-brandDark mb-1">Servicio Requerido *</label>
+                                <div class="relative">
+                                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                                        <i class="fa-solid fa-list text-gray-400"></i>
+                                    </span>
+                                    <select id="service_interest" name="service_interest" required
+                                            class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 text-brandDark focus:outline-none focus:border-brandHeader focus:ring-2 focus:ring-blue-100 transition duration-300 bg-white">
+                                        <option value="" disabled selected>Selecciona una opción</option>
+                                        <option value="Enterprise AI & Cloud">Enterprise AI & Cloud</option>
+                                        <option value="Estrategia de Ciberseguridad">Estrategia de Ciberseguridad</option>
+                                        <option value="Automatización Inteligente">Automatización de Procesos (Make)</option>
+                                        <option value="Consultoría Integral">Consultoría General de Negocios</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mensaje -->
+                        <div>
+                            <label for="message" class="block text-sm font-semibold text-brandDark mb-1">Cuéntanos sobre tu proyecto o PYME *</label>
+                            <textarea id="message" name="message" rows="4" required
+                                      class="w-full p-4 rounded-lg border border-gray-300 text-brandDark focus:outline-none focus:border-brandHeader focus:ring-2 focus:ring-blue-100 transition duration-300"
+                                      placeholder="Describe de forma breve qué retos tienes en tu empresa para poder preparar tu propuesta personalizada..."></textarea>
+                        </div>
+
+                        <!-- Botón de Envío -->
+                        <button type="submit" id="submitBtn"
+                                class="w-full bg-brandHeader hover:bg-brandAccent text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <span id="btnText">Enviar Solicitud</span>
+                            <span id="btnSpinner" class="hidden"><i class="fa-solid fa-circle-notch fa-spin"></i> Enviando...</span>
+                            <i class="fa-solid fa-paper-plane text-xs"></i>
+                        </button>
+                    </form>
+
+                    <!-- Caja de mensajes personalizada para evitar alert() -->
+                    <div id="messageBox" class="hidden mt-6 p-4 rounded-lg text-center font-medium transition duration-300"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brandHeader text-white py-12 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+            <div class="flex items-center justify-center space-x-2 text-2xl font-bold tracking-wider">
+                <!-- Nuevo Logotipo también en el Footer con filtro inverso blanco -->
+                <img src="https://lh3.googleusercontent.com/d/1uw831d87j_ABZUZoaBwUz78iBREy3GWT" alt="Logo Luis Tech Footer" class="h-10 w-auto object-contain rounded filter brightness-0 invert" onerror="this.onerror=null; this.src='https://placehold.co/150x50/00308F/FFFFFF?text=LUIS+TECH';">
+                <span>LUIS <span class="text-sky-300">TECH</span></span>
+            </div>
+            <p class="text-blue-100 max-w-md mx-auto text-sm leading-relaxed">
+                Expertos en arquitectura en la nube, ciberseguridad, automatizaciones modernas e integración empresarial con foco en pymes.
+            </p>
+            <div class="flex justify-center space-x-6">
+                <a href="https://linkedin.com" target="_blank" class="text-blue-200 hover:text-white transition text-lg" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="https://github.com" target="_blank" class="text-blue-200 hover:text-white transition text-lg" aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://youtube.com" target="_blank" class="text-blue-200 hover:text-white transition text-lg" aria-label="YouTube">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+            </div>
+            <div class="pt-6 border-t border-blue-900 text-xs text-blue-200">
+                <p>&copy; 2026 Luis Tech. Todos los derechos reservados. Colombia.</p>
+                <p class="mt-2">Desarrollado con pasión para la transformación digital empresarial.</p>
+            </div>
+        </div>
+    </footer>
+
+  <script>
+    // ==============================
+    // MENÚ MÓVIL
+    // ==============================
+    document.getElementById('mobile-menu-button').addEventListener('click', function () {
+
+        const menu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('menu-icon');
+
+        menu.classList.toggle('hidden');
+
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-xmark');
+    });
+
+    // ==============================
+    // ENVÍO FORMULARIO A MAKE
+    // ==============================
+    document.getElementById('contactForm').addEventListener('submit', async function (e) {
+
+        e.preventDefault();
+
+        // ELEMENTOS UI
+        const btn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const btnSpinner = document.getElementById('btnSpinner');
+        const msgBox = document.getElementById('messageBox');
+
+        // ESTADO DE CARGA
+        btn.disabled = true;
+
+        btnText.classList.add('hidden');
+
+        btnSpinner.classList.remove('hidden');
+
+        msgBox.classList.add('hidden');
+
+        // ==============================
+        // DATOS DEL FORMULARIO
+        // ==============================
+        const formData = {
+
+            nombre: document.getElementById('name').value.trim(),
+
+            correo: document.getElementById('email').value.trim(),
+
+            telefono: document.getElementById('phone').value.trim(),
+
+            servicios: document.getElementById('service_interest').value,
+
+            mensaje: document.getElementById('message').value.trim(),
+
+            fecha: new Date().toISOString()
+        };
+
+        // DEBUG EN CONSOLA
+        console.log("================================");
+        console.log("DATOS ENVIADOS A MAKE:");
+        console.log(formData);
+        console.log(JSON.stringify(formData, null, 2));
+        console.log("================================");
+
+        try {
+
+            // ==============================
+            // ENVÍO AL WEBHOOK MAKE
+            // ==============================
+            const response = await fetch('https://hook.us2.make.com/0sgdll4bj0l3w62vmpuykw4uugweksef', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                }
+            );
+
+            // RESPUESTA DEL SERVIDOR
+            const responseText = await response.text();
+
+            console.log("RESPUESTA MAKE:");
+            console.log(responseText);
+
+            // SI TODO SALE BIEN
+            if (response.ok) {
+
+                msgBox.textContent =
+                    "✅ Solicitud enviada correctamente. Te contactaremos pronto.";
+
+                msgBox.className =
+                    "mt-6 p-4 rounded-lg text-center font-medium bg-emerald-100 text-emerald-800";
+
+                // LIMPIAR FORMULARIO
+                this.reset();
+
+            } else {
+
+                throw new Error("Error del webhook Make");
+
+            }
+
+        } catch (error) {
+
+            console.error("ERROR COMPLETO:");
+            console.error(error);
+
+            msgBox.textContent =
+                "❌ Hubo un problema al enviar el formulario. Revisa la consola con F12.";
+
+            msgBox.className =
+                "mt-6 p-4 rounded-lg text-center font-medium bg-red-100 text-red-800";
+
+        } finally {
+
+            // RESTAURAR BOTÓN
+            btn.disabled = false;
+
+            btnText.classList.remove('hidden');
+
+            btnSpinner.classList.add('hidden');
+
+            msgBox.classList.remove('hidden');
+        }
+
+    });
+</script>
+</body>
+</html>
